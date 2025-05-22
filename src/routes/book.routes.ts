@@ -1,18 +1,19 @@
 // backend/src/routes/bookRoutes.js
+import { Response, Request, NextFunction } from "express";
 import express from "express";
 import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 const router = express.Router();
 
 // Create Book
-router.post("/", async (req, res) => {
+router.post("/", async (req: Request, res: Response) => {
   const { title, author } = req.body;
   const book = await prisma.book.create({ data: { title, author } });
   res.json(book);
 });
 
 // Get All Books
-router.get("/", async (req, res) => {
+router.get("/", async (req: Request, res: Response) => {
   const books = await prisma.book.findMany();
   res.json(books);
 });

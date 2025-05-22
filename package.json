@@ -5,23 +5,30 @@
   "scripts": {
     "dev": "nodemon src/index.ts",
     "start": "node src/index.js",
-    "prisma:migrate-generate": "prisma migrate dev && prisma generate"
+    "prisma:migrate-generate": "prisma migrate dev && prisma generate",
+    "prisma:migrate-dev": "prisma migrate dev"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "prisma": {
+    "seed": "ts-node prisma/seed.ts"
+  },
   "description": "",
   "dependencies": {
     "@prisma/client": "^6.6.0",
     "cors": "^2.8.5",
     "dotenv": "^16.5.0",
+    "eslint": "^9.27.0",
     "express": "^5.1.0",
     "prisma": "^6.6.0"
   },
   "devDependencies": {
     "@types/cors": "^2.8.18",
     "@types/express": "^5.0.2",
+    "@types/node": "^22.15.21",
     "nodemon": "^3.1.10",
+    "prettier": "^3.5.3",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
   }
